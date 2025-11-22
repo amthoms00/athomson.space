@@ -9,7 +9,7 @@
         /* global styles */
         body {
             background: #0e0f12;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             padding-top: 80px;
             margin: 0;
@@ -25,18 +25,34 @@
             font-size: 1.2rem;
         }
 
-        /*link styling*/
+        /* link styling w underline animation */
         a {
             color: #91e3f8;
             text-decoration: none;
             font-weight: normal;
-            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #91e3f8; /* underline colour */
+            transition: width 0.3s ease-in-out;
         }
 
         a:hover {
             font-weight: bold;
-            color: #daf8ff;
-            text-decoration: underline;
+            color: #daf8ff; /* change text color */
+        }
+
+        a:hover::after {
+            width: 100%; /* grows to full width on hover */
         }
 
         img {
@@ -47,10 +63,11 @@
     </style>
 </head>
 <body>
-    <h1>Under Construction</h1>
+    <h1>UNDER CONSTRUCTION</h1>
     <p>surely this will be up and running soon, right?</p>
     <p>in the meantime, <a href="https://ytjobs.co/talent/profile/139760?r=283">check out my portfolio!</a></p>
-    <img src="/mnt/data/9b69b7cb-1932-4415-bc85-839a009ebc94.png" alt="cat construction awesome" />
+    
+    <!-- prior to deployment, make sure this image source is changed -->
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXV4Y2wzcGZid29zOWswOXlyM3NscGtyaGczMXZ1cDhpOGN1ZzloNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif" alt="cat construction awesome" />
 </body>
 </html>
-
