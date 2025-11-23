@@ -1,0 +1,540 @@
+/* --------------------------------------------------
+   BASIC RESET
+-------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   CUSTOM FONTS
+-------------------------------------------------- */
+@font-face {
+    font-family: 'PixelBody';
+    src: url('fonts/ari-w9500-display.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PixelHeader';
+    src: url('fonts/upheavtt.ttf') format('truetype');
+}
+
+/* --------------------------------------------------
+   GLOBAL TEXT
+-------------------------------------------------- */
+body {
+    font-family: 'PixelBody', sans-serif;
+    background-color: #080911;
+    line-height: 1.6;
+}
+
+main.aboutpage {
+    animation: fadeInFromLeft 0.8s ease forwards;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PixelHeader', sans-serif;
+    color: white;
+    line-height: 0.6;
+}
+
+h1 { font-size: clamp(100px, 9vw, 800px); }
+h2 { font-size: clamp(40px, 12vw, 200px); }
+h3 { 
+    font-size: clamp(40px, 13vw, 200px);; 
+   }
+h4, h5, h6 { font-size: clamp(20px, 4vw, 50px); }
+
+/* Spacing under "ALEXA THOMSON" (your choice #1 = medium) */
+h1:last-of-type {
+    margin-bottom: clamp(25px, 5vw, 70px);
+}
+
+/* Spacing under "WHAT AM I UP TO" */
+h2:last-of-type {
+    margin-bottom: clamp(10px, 5vw, 50px);
+}
+
+h3:last-of-type {
+    margin-bottom: clamp(25px, 8vw, 70px);
+}
+
+.p1, .p2, .p3, .p4 {
+    font-family: 'PixelBody', sans-serif;
+}
+
+/* Job title text */
+.p1 {
+    font-size: clamp(18px, 3vw, 60px);
+    color: #5461b0;
+    line-height: 0.6; /* Default for larger screens */
+    margin-bottom: clamp(5px, 1vw, 12px);
+}
+
+.p2 {
+    color:white;
+}
+
+/* Default .p4 styling */
+.p4 {
+    font-size: clamp(18px, 4vw, 60px);
+    color: white;
+    line-height: 0.95;
+    margin-bottom: clamp(10px, 5vw, 12px); /* Default margin */
+}
+
+/* Add space between .p4 and the next .p2 */
+.p4 + .p2 {
+    margin-top: clamp(10px, 2vw, 30px); /* Adjust the gap between p2 and p4 */
+}
+
+/* Default margin between p2 and p4 */
+.p2 + .p4 {  /* This targets p4 that immediately follows p2 */
+    margin-top: clamp(20px, 5vw, 70px); /* Adjust the gap between p2 and p4 */
+}
+
+/* --------------------------------------------------
+   TEXT ANIMATION
+-------------------------------------------------- */
+/* Ensure each animated line is stacked vertically */
+.p1-wrap {
+    display: flex;
+    flex-direction: column; /* Stack the lines vertically */
+    gap: 3px; /* Optional: Adjust the gap between each line */
+}
+
+/* Apply animation to each line */
+.animated-line {
+    opacity: 0;
+    transform: translateX(-60px); /* Start off-screen */
+    position: relative; /* Ensure transform is relative to the element */
+    display: inline-block; /* Ensure the spans behave like block elements for easier animation */
+    animation: slideFade 1s ease forwards;
+}
+
+/* Delay each line’s animation */
+.line-1 { animation-delay: 0.1s; }
+.line-2 { animation-delay: 1s; }
+.line-3 { animation-delay: 2s; }
+
+@keyframes slideFade {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px); /* Start off-screen */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at its original position */
+    }
+}
+
+/* Fade-in animation from the left */
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-5%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -------------------------------------------------- 
+   HEADER + NAV
+-------------------------------------------------- */
+header {
+    background: #5461b0;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: clamp(14px, 1.8vw, 22px);
+    padding: clamp(8px, 1vw, 14px) clamp(12px, 1.5vw, 20px);
+    display: inline-block; /* Ensures transform works on inline elements */
+    transition: transform 0.3s ease, color 0.3s ease; /* Add transition for smooth effect */
+}
+
+nav ul li a:hover {
+    color: #080911;
+    transform: scale(1.1);  /* Add transform scale to grow on hover */
+}
+
+/* Updated contact button styles */
+.contact-btn {
+    background-color: #91e3f8;
+    color: #080911;
+    border-radius: 0.5vw;
+}
+
+.contact-btn:hover {
+    background-color: #080911;
+    color: white;
+    transform: scale(1.05);  /* Makes the contact button slightly bigger */
+}
+
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+main {
+    padding-bottom: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+}
+
+#test {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    gap: clamp(20px, 5vw, 70px);
+}
+
+.text-container {
+    max-width: 50%;
+}
+
+.image-container {
+    max-width: 45%;
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.01);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'PixelBody';
+    opacity: 0;
+    color: white;
+    transition: opacity 0.3s ease;
+    font-size: clamp(14px, 2vw, 30px);
+}
+
+.image-container:hover .overlay-text {
+    opacity: 1;
+}
+
+.language, .p2 {
+    display: block; /* Ensures each language is displayed on its own line */
+    cursor: pointer; /* Indicates the text is interactive */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    margin-bottom: 8px; /* Optional: Adjust space between lines */
+    transform-origin: left center; /* Anchor zoom to the left side */
+}
+
+.language:hover, .education:hover {
+    color:#c5ccf7;
+    transform: scale(1.1);  /* Zoom in effect anchored to the left */
+}
+
+.p2:hover {
+    transform: scale(1.1);  /* Zoom in effect anchored to the left */
+}
+
+/* --------------------------------------------------
+   ABOUT ME ICONS
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+   General Icon & Text Alignment
+-------------------------------------------------- */
+.general-container, .languages-container, .education-container, .hobbies-container {
+    display: flex;
+    align-items: center;  /* Vertically align the image with the text */
+    gap: 10px;  /* Space between the image and the text, adjust as needed */
+    margin-top: clamp(30px, 7vw, 40px);  /* Optional: Margin below each section */
+}
+
+.general-icon, .languages-icon, .education-icon, .hobbies-icon {
+    width: clamp(20px, 5vw, 40px); /* Adjust size with clamp for responsive scaling */
+    height: auto;  /* Maintain the aspect ratio of the image */
+}
+
+/* --------------------------------------------------
+   Language Hover/Zoom Effect
+-------------------------------------------------- */
+.language, .p2 {
+    display: block; /* Ensures each language is displayed on its own line */
+    cursor: pointer; /* Indicates the text is interactive */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    margin-bottom: 8px; /* Optional: Adjust space between lines */
+    transform-origin: left center; /* Anchor zoom to the left side */
+}
+
+.p2:hover {
+    transform: scale(1.05);  /* Zoom in effect anchored to the left */
+}
+
+/* --------------------------------------------------
+   ICON Sizing Adjustment for Consistency
+-------------------------------------------------- */
+.general-icon, .education-icon, .hobbies-icon, .languages-icon {
+    width: clamp(20px, 5vw, 40px); /* Consistent size for all icons */
+    height: auto; /* Preserve aspect ratio */
+}
+
+/* --------------------------------------------------
+   General Icon & Text Alignment
+-------------------------------------------------- */
+.general-container, .languages-container, .education-container, .hobbies-container {
+    display: flex;
+    align-items: center;  /* Vertically align the image with the text */
+    gap: 10px;  /* Space between the image and the text */
+}
+
+.general-icon, .languages-icon, .education-icon, .hobbies-icon {
+    width: clamp(20px, 5vw, 40px); /* Adjust size with clamp for responsive scaling */
+    height: auto;  /* Maintain the aspect ratio of the image */
+}
+
+
+
+/* --------------------------------------------------
+   WHAT AM I UP TO SECTION
+-------------------------------------------------- */
+.up-to-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(20px, 5vw, 60px);
+    width: 100%;
+    margin-top: clamp(50px, 10vw, 120px);
+}
+
+.up-to-gif {
+    width: 40%;
+}
+
+.up-to-gif img {
+    width: 80%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.up-to-section {
+    width: 60%;
+    text-align: right;
+}
+
+.up-to-section .p3 {
+    color: #5461b0;
+    font-size: clamp(14px, 2vw, 26px);
+    line-height: 1.4;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #5461b0;
+    color: white;
+}
+
+/* Sticky GIF */
+.sticky-gif {
+    position: fixed; /* Sticks to the bottom-right */
+    bottom: 20px; /* Adjust distance from the bottom */
+    right: 20px;  /* Adjust distance from the right */
+    width: clamp(100px, 27vw, 800px);  /* Scales the width based on viewport width */
+    height: auto;  /* Keeps the aspect ratio intact */
+    z-index: 10; /* Ensures it's above other content */
+}
+
+
+
+/* --------------------------------------------------
+   RESPONSIVE HERO (keeps same proportions)
+-------------------------------------------------- */
+@media (max-width: 5000px) {
+    h1 { font-size: 12vw; }
+    h2 { font-size: 10vw; }
+}
+
+@media (max-width: 1200px) {
+    h1 { font-size: 11vw; }
+    h2 { font-size: 10vw; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 13vw; }
+    h2 { font-size: 11vw; }
+}
+
+@media (max-width: 768px) {
+    #test {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container,
+    .image-container {
+        max-width: 100%;
+    }
+
+    .overlay-text {
+        top: 90%;
+    }
+}
+
+@media (max-width: 800px) {
+    .profile-image {
+        width: 100%;      /* smaller image */
+        max-width: 400px; /* optional: cap the max size */
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Responsive behavior for smaller screen sizes */
+@media (max-width: 1200px) {
+    .p4 {
+        font-size: clamp(22px, 6vw, 60px); /* Increase size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .p4 {
+        font-size: clamp(24px, 6vw, 40px); /* Make it bigger on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .p4 {
+        font-size: clamp(26px, 5vw, 20px); /* Even bigger on very small screens */
+    }
+}
+
+/* --------------------------------------------------
+   RESPONSIVE P2 (similar to h1, h2, and p4 scaling)
+-------------------------------------------------- */
+.p2 {
+    font-size: clamp(16px, 3vw, 40px); /* Default scaling for large screens */
+    color:#5461b0;
+    line-height: 1.2;
+    margin-bottom: clamp(5px, 2vw, 12px); /* Optional: Adjust bottom margin */
+    margin-left: 40px;
+}
+
+/* Responsive behavior for smaller screen sizes */
+@media (max-width: 1200px) {
+    .p2 {
+        font-size: clamp(18px, 4vw, 35px); /* Increase size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .p2 {
+        font-size: clamp(20px, 3vw, 30px); /* Make it bigger on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .p2 {
+        font-size: clamp(22px, 2vw, 30px); /* Even bigger on very small screens */
+    }
+}
+
+/* You can also adjust the gap for different screen sizes */
+@media (max-width: 1200px) {
+    .p2 + .p4 {
+        margin-top: clamp(12px, 6vw, 100px);  /* Adjust the gap for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .p2 + .p4 {
+        margin-top: clamp(15px, 6vw, 90px);  /* Increase the gap on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .p2 + .p4 {
+        margin-top: clamp(40px, 12vw, 70px);  /* Larger gap for very small screens */
+    }
+}
+
+/* --------------------------------------------------
+   RESPONSIVE "UP TO" SECTION (keeps same proportions)
+-------------------------------------------------- */
+@media (max-width: 768px) {
+    .up-to-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .up-to-gif,
+    .up-to-section {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .up-to-gif img {
+        width: 60%;   /* smaller GIF on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .up-to-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .up-to-gif,
+    .up-to-section {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Adjust line-height on smaller screens (mobile) */
+@media (max-width: 768px) {
+    .p1 {
+        line-height: 0.01; /* Tighter line-height for mobile */
+    }
+}

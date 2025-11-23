@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Alexa!</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="https://ytjobs.co/talent/profile/139760?r=283">Portfolio Link</a></li>
+                <li><a class="contact-btn" href="mailto:hello@athomson.space">Contact Me!</a></li>
+            </ul>
+        </nav>
+    </header>
+<main class="aboutpage">
+<section>
+    <h3>About Me</h3>
+
+    <!-- General Section -->
+    <div class="general-container">
+        <img src="assets/images/general.webp" alt="general icon" class="general-icon">
+        <p class="p4">GENERAL</p>
+    </div>
+    <p class="p2">21 years old</p>
+    <p class="p2">any pronouns</p>
+    <p class="p2">Spokane, Washington, USA</p>
+
+    <!-- Languages Section -->
+    <div class="languages-container">
+        <img src="assets/images/languages.webp" alt="languages icon" class="languages-icon">
+        <p class="p4">LANGUAGES</p>
+    </div>
+    <p class="p2 language" data-hover="English (US) - C2">English</p>
+    <p class="p2 language" data-hover="Québécois - C1">French</p>
+    <p class="p2 language" data-hover="Svenska - B1">Swedish</p>
+    <p class="p2 language" data-hover="Nederlands - A2">Dutch</p>
+    <p class="p2 language" data-hover="Deutsch - A2">German</p>
+
+    <!-- Education Section -->
+    <div class="education-container">
+        <img src="assets/images/education.webp" alt="education icon" class="education-icon">
+        <p class="p4">EDUCATION</p>
+    </div>
+    <p class="p2 education" data-hover="Will be graduating with honors (3.5 GPA)">BA Digital Media</p>
+    <p class="p2 education" data-hover="Competed on an NCAA D1 Track & Field Team">Eastern Washington University</p>
+
+    <!-- Hobbies Section -->
+    <div class="hobbies-container">
+        <img src="assets/images/hobbies.webp" alt="hobbies icon" class="hobbies-icon">
+        <p class="p4">HOBBIES</p>
+    </div>
+    <p class="p2">Crocheting</p>
+    <p class="p2">Drawing</p>
+    <p class="p2">Geoguessr</p>
+</section>
+    </main>
+    <img src="assets\images\wave.gif" alt="hello" class="sticky-gif">
+
+        <!--
+    <footer>
+        <p>footer</p>
+    </footer>
+        -->
+<script>
+/* SAME NAVIGATION SOUNDS AS INDEX PAGE */
+
+// Define the hover sound
+const hoverSound = new Audio("assets/SFX/hoveraboutme.wav");
+hoverSound.volume = 0.3;  // Set volume to 30% of maximum
+
+// Default nav click sound
+const clickSound = new Audio("assets/SFX/clicktootherpage.wav");
+
+// Special contact click sound
+const contactSound = new Audio("assets/SFX/contactbutton.wav");
+
+const navLinks = document.querySelectorAll("nav a");
+
+// Add event listeners for navigation
+navLinks.forEach(link => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (link.classList.contains("contact-btn")) {
+            contactSound.currentTime = 0;
+            contactSound.play();
+            setTimeout(() => { window.location.href = link.href; }, 600);
+        } else {
+            clickSound.currentTime = 0;
+            clickSound.play();
+            setTimeout(() => { window.location.href = link.href; }, 500);
+        }
+    });
+});
+
+// Function to handle hover sound and text change for .language and .education
+function handleHoverEffect(selector) {
+    document.querySelectorAll(selector).forEach(item => {
+        item.addEventListener('mouseover', function() {
+            // Play hover sound
+            hoverSound.currentTime = 0;  // Reset sound
+            hoverSound.play();  // Play sound
+
+            // Change text content
+            const originalText = item.textContent;
+            const hoverText = item.getAttribute('data-hover');
+            item.setAttribute('data-original', originalText);  // Store original text
+            item.textContent = hoverText;  // Set new text
+        });
+
+        item.addEventListener('mouseout', function() {
+            // Restore original text
+            const originalText = item.getAttribute('data-original');
+            item.textContent = originalText;
+        });
+    });
+}
+
+// Apply hover effect to both .language and .education elements
+handleHoverEffect('.language');
+handleHoverEffect('.education');
+</script>
+
+
+
+
+</body>
+</html>
