@@ -1,107 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alexa Thomson's Page!</title>
-
-    <style>
-        /* global styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box; /* prevent overflow and ensures padding/borders are included in element size */
-        }
-
-        body {
-            background: #0e0f12;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* centers content vertically */
-            align-items: center;     /* denters content horizontally */
-            height: 100vh;           /* make body take full viewport height */
-            margin: 0;
-            padding-top: 50px; /* adjust for mobile spacing */
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #5461b0;
-        }
-
-        p {
-            color: #ffffff;
-            font-size: 1.2rem;
-        }
-
-        /* link styling with underline animation */
-        a {
-            color: #91e3f8;
-            text-decoration: none;
-            font-weight: normal;
-            position: relative;
-            display: inline-block;
-            transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #91e3f8; /* underline color */
-            transition: width 0.3s ease-in-out;
-        }
-
-        a:hover {
-            font-weight: bold;
-            color: #daf8ff; /* change text color */
-        }
-
-        a:hover::after {
-            width: 100%; /* underline grows to full width on hover */
-        }
-
-        img {
-            max-width: 300px;
-            margin-top: 20px;
-            opacity: 0.9;
-        }
-
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 10px; /* less padding on mobile */
-                padding-left: 15px; /* adds space on the sides */
-                padding-right: 15px;
-            }
-
-            h1 {
-                font-size: 2.5rem; /* slightly smaller heading */
-            }
-
-            p {
-                font-size: 1rem; /* smaller text for mobile */
-            }
-
-            img {
-                max-width: 100%; /* ensure image scales with screen width */
-                width: 100%;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alexa Thomson</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>UNDER CONSTRUCTION</h1>
-    <p>surely this will be up and running soon, right?</p>
-    <p>in the meantime, <a href="https://ytjobs.co/talent/profile/139760?r=283">check out my portfolio!</a></p>
-    
-    <!-- prior to deployment, make sure this image source is changed -->
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXV4Y2wzcGZid29zOWswOXlyM3NscGtyaGczMXZ1cDhpOGN1ZzloNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif" alt="cat construction awesome" />
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://ytjobs.co/talent/profile/139760?r=283">Portfolio Link</a></li>
+            <!-- <li><a href="DownloadCV.html">Download CV</a></li> -->
+            <li><a class="contact-btn" href="mailto:hello@athomson.space">Contact Me!</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO SECTION -->
+    <section id="test">
+        <div class="text-container">
+            <h1>ALEXA</h1>
+            <h1>THOMSON</h1>
+
+            <div class="p1-wrap">
+                <span class="p1 animated-line line-1">Content Strategist.</span><br>
+                <span class="p1 animated-line line-2">Data Analyst.</span><br>
+                <span class="p1 animated-line line-3">Video Editor.</span>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="assets/images/ezgif-18f746f065711ef2.webp" 
+                 alt="Alexa Thomson" class="profile-image">
+            <div class="overlay-text">nice to meet you :)</div>
+        </div>
+    </section>
+
+
+    <!-- WHAT AM I UP TO + GIF -->
+<section class="up-to-wrapper reveal">
+    <div class="up-to-gif">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHhuNzhkeDlncWl3eDFzcHVhbG4wZTlkbTYwM2xoZXltMnZtMWs2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIXuZv/giphy.gif" 
+             alt="incredibly studious cat">
+    </div>
+
+    <div class="up-to-section">
+        <h2>What am I</h2>
+        <h2>up to?</h2>
+
+        <p class="p3">
+            As of November 2025: Currently finishing out fall quarter at my university, and working on numerous videos for clients! I've also been applying for jobs in the EU -- planning a big move after graduation (June 2026)! On the side, I've been reading and crocheting :) 
+        </p>
+    </div>
+</section>
+
+
+</main>
+
+
+<script>
+    /* --- CLICK SOUNDS --- */
+    const clickSound = new Audio("assets/SFX/clicktootherpage.wav");
+    clickSound.volume = 1.0;
+
+    const contactSound = new Audio("assets/SFX/contactbutton.wav");
+    contactSound.volume = 1.0;
+
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if (link.classList.contains("contact-btn")) {
+                contactSound.play();
+                setTimeout(() => window.location.href = link.href, 600);
+            } else {
+                clickSound.play();
+                setTimeout(() => window.location.href = link.href, 500);
+            }
+        });
+    });
+
+
+    /* --- REVEAL ANIMATION --- */
+/* --- REVEAL ANIMATION (SHOW ON SCROLL, HIDE WHEN SCROLLED AWAY) --- */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        } else {
+            entry.target.classList.remove("visible"); // <-- hides again
+        }
+    });
+}, { threshold: 0.3 });
+
+document.querySelectorAll(".reveal").forEach(section => {
+    observer.observe(section);
+});
+</script>
 </body>
 </html>
-
