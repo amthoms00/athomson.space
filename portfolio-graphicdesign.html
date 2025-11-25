@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alexa Thomson's Portfolio!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a class="contact-btn" href="mailto:hello@athomson.space">Contact Me!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio-videoproduction">
+
+        <a href="portfolio.html" class="back-btn">&lt; BACK</a>
+
+        <section>
+            <h4>Graphic design</h4>
+            <p class="p6">UNDER CONSTRUCTION</p>
+        </section>
+
+        <!-- VIDEO GRID 
+<section class="video-grid">
+<div class="video-block">
+    <a href="https://youtu.be/2Mp16JMVUJQ" class="video-item" target="_blank">
+        <img src="https://img.youtube.com/vi/2Mp16JMVUJQ/maxresdefault.jpg" alt="Video Thumbnail">
+        <div class="video-title">SCHOOL<br>SPIRIT</div>
+        <div class="video-hover-text">CLICK FOR FULL VIDEO!</div>
+    </a>
+    <p class="video-desc">Producer, Director of Photography, Lead Cinematographer, Lead G&E, and Post Production Lead.</p>
+    </div>
+
+    <div class="video-block">
+    <a href="https://youtu.be/JEZw6Eqb85Y" class="video-item" target="_blank">
+        <img src="https://img.youtube.com/vi/JEZw6Eqb85Y/maxresdefault.jpg" alt="Video Thumbnail">
+        <div class="video-title">ALPHA<br>SIGMA<br>DIE</div>
+        <div class="video-hover-text">CLICK FOR FULL VIDEO!</div>
+    </a>
+    <p class="video-desc">Producer, 1st AD, Director of Photography, Lead Cinematographer, Lead G&E, and Post Production Lead.</p>
+    </div>
+
+    <div class="video-block">
+    <a href="https://youtu.be/6ELOZ_zMY8A" class="video-item" target="_blank">
+        <img src="https://img.youtube.com/vi/6ELOZ_zMY8A/maxresdefault.jpg" alt="Video Thumbnail">
+        <div class="video-title">PARANORMALITY</div>
+        <div class="video-hover-text">CLICK FOR FULL VIDEO!</div>
+    </a>
+    <p class="video-desc">Producer, 1st AD, Director of Photography, Lead Cinematographer, and Post Production Lead.</p>
+    </div>
+    -->
+
+</section>
+    </main>
+
+    <script>
+    /* NAVIGATION CLICK SOUNDS */
+    const clickSound = new Audio("assets/SFX/clicktootherpage.wav");
+    const contactSound = new Audio("assets/SFX/contactbutton.wav");
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault();
+
+            if (link.classList.contains("contact-btn")) {
+                contactSound.currentTime = 0;
+                contactSound.play();
+                setTimeout(() => { window.location.href = link.href; }, 600);
+            } else {
+                clickSound.currentTime = 0;
+                clickSound.play();
+                setTimeout(() => { window.location.href = link.href; }, 500);
+            }
+        });
+    });
+
+    /* BACK BUTTON SOUND */
+const backSound = new Audio("assets/SFX/backbutton.mp3");
+backSound.volume = 0.4;
+
+const backBtn = document.querySelector(".back-btn");
+
+if (backBtn) {
+    backBtn.addEventListener("click", event => {
+        event.preventDefault();   // stop instant navigation
+        backSound.currentTime = 0;
+        backSound.play();
+
+        setTimeout(() => {
+            window.location.href = backBtn.href;
+        }, 500); // delay so sound can play
+    });
+}
+
+
+    /* HOVER SOUND FOR VIDEO ITEMS */
+    const hoverSound = new Audio("assets/SFX/hoveraboutme.wav");
+    hoverSound.volume = 0.05;
+
+    document.querySelectorAll(".video-item").forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play().catch(() => {});
+        });
+    });
+    </script>
+
+</body>
+</html>

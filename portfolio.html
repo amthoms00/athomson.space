@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alexa Thomson's Portfolio!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a class="contact-btn" href="mailto:hello@athomson.space">Contact Me!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio">
+        <section>
+            <h4>Portfolio</h4>
+            <p class="p5">19,000,000+ views. 3+ years of professional experience.</p>
+        </section>
+
+        <section class="portfolio-grid">
+
+            <!-- VIDEO EDITING -->
+            <a href="portfolio-videoediting.html" class="portfolio-item">
+                <img src="assets/images/video editing header.webp" alt="Video Editing">
+                <div class="overlay-text" data-hover="EDITING">VIDEO<br>EDITING</div>
+            </a>
+
+            <!-- VIDEO PRODUCTION -->
+            <a href="portfolio-videoproduction.html" class="portfolio-item">
+                <img src="assets/images/video production header.webp" alt="Video Production">
+                <div class="overlay-text" data-hover="PRODUCTION">VIDEO<br>PRODUCTION</div>
+            </a>
+
+            <!-- GRAPHIC DESIGN -->
+            <a href="portfolio-graphicdesign.html" class="portfolio-item">
+                <img src="assets/images/graphic design header.webp" alt="Graphic Design">
+                <div class="overlay-text" data-hover="DESIGN">GRAPHIC<br>DESIGN</div>
+            </a>
+
+            <!-- DATA ANALYTICS -->
+            <a href="portfolio-dataanalytics.html" class="portfolio-item">
+                <img src="assets/images/data analytics header.webp" alt="Data Analytics">
+                <div class="overlay-text" data-hover="DATA">DATA<br>ANALYTICS</div>
+            </a>
+
+            <!-- CONTENT MANAGEMENT -->
+            <a href="portfolio-contentmanagement.html" class="portfolio-item">
+                <img src="assets/images/content management header.webp" alt="Content Management">
+                <div class="overlay-text" data-hover="CONTENT">CONTENT<br>MANAGEMENT</div>
+            </a>
+
+            <!-- WEBSITE DEVELOPMENT -->
+            <a href="portfolio-websitedevelopment.html" class="portfolio-item">
+                <img src="assets/images/website development header.webp" alt="Website Development">
+                <div class="overlay-text" data-hover="WEB">WEBSITE<br>DEV</div>
+            </a>
+
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script>
+    /* NAVIGATION CLICK SOUNDS */
+
+    const clickSound = new Audio("assets/SFX/clicktootherpage.wav");
+    const contactSound = new Audio("assets/SFX/contactbutton.wav");
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault();
+
+            if (link.classList.contains("contact-btn")) {
+                contactSound.currentTime = 0;
+                contactSound.play();
+                setTimeout(() => { window.location.href = link.href; }, 600);
+            } else {
+                clickSound.currentTime = 0;
+                clickSound.play();
+                setTimeout(() => { window.location.href = link.href; }, 500);
+            }
+        });
+    });
+
+    /* CLICK SOUND FOR PORTFOLIO ITEMS */
+const portfolioClickSound = new Audio("assets/SFX/portfolioproceed.mp3");
+portfolioClickSound.volume = 0.4; // adjust between 0.0 and 1.0
+
+document.querySelectorAll(".portfolio-item").forEach(item => {
+    item.addEventListener("click", event => {
+        event.preventDefault();  
+        portfolioClickSound.currentTime = 0;
+        portfolioClickSound.play();
+
+        setTimeout(() => {
+            window.location.href = item.href;
+        }, 500); // delay so sound can play
+    });
+});
+
+
+
+    /* HOVER SOUND FOR PORTFOLIO ITEMS */
+
+    const hoverSound = new Audio("assets/SFX/hoveraboutme.wav");
+    hoverSound.volume = 0.05;
+
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+    portfolioItems.forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play().catch(() => {});
+        });
+    });
+    </script>
+
+</body>
+</html>
