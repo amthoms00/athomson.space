@@ -542,6 +542,119 @@ main {
 
 
 /* --------------------------------------------------
+   Graphic Design & Text Alignment
+-------------------------------------------------- */
+
+/* VIDEO GRID */
+.graphicdesign-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* description default */
+.graphic-desc {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #5461b0;
+    opacity: 0.9;
+}
+
+/* description turns white when ANY part of block is hovered */
+.graphicdesign-block:hover .graphic-desc {
+    color: white;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+/* grid settings (unchanged) */
+.graphicdesign-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 2000px;
+    padding: 0 20px;
+}
+
+/* video image wrapper */
+.graphic-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* actual thumbnail */
+.graphic-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+/* title */
+.graphic-item .graphic-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 20px 20px rgba(0, 0, 0, 0.99);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* hover text */
+.graphic-item .graphic-hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #91e4f8c0;
+    pointer-events: none;
+    z-index: 11;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* HOVER EFFECTS — triggered by .video-block, not .video-item */
+.graphicdesign-block:hover .graphic-item {
+    transform: scale(1.025);   /* whole image scales up */
+}
+
+.graphicdesign-block:hover .graphic-item img {
+    transform: scale(1.025);   /* ensures IMG scales with it */
+}
+
+.graphicdesign-block:hover .graphic-title {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.graphicdesign-block:hover .graphic-hover-text {
+    opacity: 1;
+}
+
+/* Desktop layout */
+@media (min-width: 1200px) {
+    .graphicdesign-grid {
+        grid-template-columns: repeat(3, minmax(500px, 1fr));
+        max-width: 5000px;
+    }
+}
+
+
+/* --------------------------------------------------
    General Icon & Text Alignment
 -------------------------------------------------- */
 .general-container, .languages-container, .education-container, .hobbies-container {
